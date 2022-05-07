@@ -11,20 +11,20 @@ CREATE TABLE admins (
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
-CREATE TABLE states (
-    id INT NOT NULL AUTO_INCREMENT,
-    name VARCHAR(30) NOT NULL,
-    PRIMARY KEY(id)
-) ENGINE=INNODB;
+-- CREATE TABLE states (
+--     id INT NOT NULL AUTO_INCREMENT,
+--     name VARCHAR(30) NOT NULL,
+--     PRIMARY KEY(id)
+-- ) ENGINE=INNODB;
 
-CREATE TABLE citys (
-    id INT NOT NULL auto_increment,
-    name VARCHAR(30) NOT NULL,
-    state_id INT NOT NULL,
-    FOREIGN KEY (state_id)
-        REFERENCES states (id),
-    PRIMARY KEY(id)
-) ENGINE=INNODB;
+-- CREATE TABLE citys (
+--     id INT NOT NULL auto_increment,
+--     name VARCHAR(30) NOT NULL,
+--     state_id INT NOT NULL,
+--     FOREIGN KEY (state_id)
+--         REFERENCES states (id),
+--     PRIMARY KEY(id)
+-- ) ENGINE=INNODB;
 
 CREATE TABLE users (
     id INT NOT NULL AUTO_INCREMENT,
@@ -33,13 +33,13 @@ CREATE TABLE users (
     email VARCHAR(30) NOT NULL,
     balance INT NOT NULL,
     address VARCHAR(50) NOT NULL,
-    state_id INT NOT NULL,
-    FOREIGN KEY (state_id)
-        REFERENCES states (id),
-	city_id INT NOT NULL,
-    FOREIGN KEY (city_id)
-        REFERENCES citys (id),
-    PRIMARY KEY(id)
+    -- state_id INT NOT NULL,
+    -- FOREIGN KEY (state_id)
+    --     REFERENCES states (id),
+	-- city_id INT NOT NULL,
+    -- FOREIGN KEY (city_id)
+    --     REFERENCES citys (id),
+    -- PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
 CREATE TABLE products (
