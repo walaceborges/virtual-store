@@ -1,4 +1,5 @@
 const userService = require('../services/loginService');
+const { createToken } = require('../helpers/jwtToken');
 
 const login = async (req, res, next) => {
   try {
@@ -10,7 +11,8 @@ const login = async (req, res, next) => {
       return res.status(user.status).json({ message: user.message });
     }
 
-    return res.status(200).json({ message: 'User logged in' });
+    const token = createToken({ id: user.id });
+    return res.status(200).json({ token });
   } catch (error) {
     next(error);
   }
