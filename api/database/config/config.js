@@ -1,6 +1,5 @@
 require('dotenv').config();
 
-console.log(process.env.MYSQL_USER, 'xx');
 module.exports = {
   development: {
     username: process.env.MYSQL_USER,
