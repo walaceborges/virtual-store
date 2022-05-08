@@ -1,6 +1,3 @@
-const EMPTY_PASSWORD = '"password" is required';
-const EMPTY_STRING_PASSWORD = '"password" is not allowed to be empty';
-
 const isEmailValid = (email) => {
 
   if (email === undefined) {
