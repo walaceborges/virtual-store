@@ -2,37 +2,29 @@ const loginService = require('../services/loginService');
 const { createToken } = require('../helpers/jwtToken');
 
 const login = async (req, res, next) => {
-  try {
-    const  { email, password } = req.body;
+  try { 
+    const { email, password, isAdmin } = req.body;
+    let loginId;
 
-    const user = await loginService.login(email, password);
-
-    if(user.status) {
-      return res.status(user.status).json({ message: user.message });
+    if (isAdmin === true) {
+      loginId = await loginService.loginAdmin(email, password);
+      
+      if (loginId.status) {
+        return res.status(loginId.status).json({ message: loginId.message });
+      }
+    } else {
+      loginId = await loginService.login(email, password);
+      
+      if (loginId.status) {
+        return res.status(loginId.status).json({ message: loginId.message });
+      }
     }
 
-    const token = createToken({ id: user.id });
+    const token = createToken({ id: loginId.id });
     return res.status(200).json({ token });
   } catch (error) {
     next(error);
   }
 };
 
-const loginAdmin = async (req, res, next) => {
-  try {
-    const  { email, password } = req.body;
-
-    const admin = await loginService.loginAdmin(email, password);
-
-    if(admin.status) {
-      return res.status(admin.status).json({ message: admin.message });
-    }
-
-    const token = createToken({ id: admin.id });
-    return res.status(200).json({ token });
-  } catch (error) {
-    next(error);
-  }
-};
-
-module.exports = { login, loginAdmin };
+module.exports = { login };
