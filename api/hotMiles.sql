@@ -7,7 +7,8 @@ USE HotMiles;
 CREATE TABLE admins (
     id INT NOT NULL auto_increment,
     name VARCHAR(30) NOT NULL,
-    admin BOOLEAN NOT NULL,
+    password VARCHAR(30) NOT NULL,
+    email VARCHAR(30) NOT NULL,
     PRIMARY KEY(id)
 ) ENGINE=INNODB;
 
