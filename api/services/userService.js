@@ -18,4 +18,16 @@ const getAll = async () => {
   return users;
 }
 
-module.exports = { create, getAll };
+const exclude = async (id) => {
+  const user = await User.findOne({ where: { id } });
+
+  if (!user) {
+    return { status: 404, message: 'User not found' };
+  }
+  
+  await User.destroy({ where: { id: id } });
+  
+  return { status: 204 };
+};
+
+module.exports = { create, getAll, exclude };

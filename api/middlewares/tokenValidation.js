@@ -1,6 +1,6 @@
 const jwt = require('../helpers/jwtToken');
 
-const validateToken = (req, res, next) => {
+const tokenValidation = (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
@@ -16,4 +16,4 @@ const validateToken = (req, res, next) => {
   }
 };
 
-module.exports = { validateToken };
+module.exports = { tokenValidation };

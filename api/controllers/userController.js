@@ -25,4 +25,19 @@ const getAll = async (_req, res, next) => {
   } 
 };
 
-module.exports = { create, getAll };
+const exclude = async (req, res, next) => {
+  try {
+    const { id } = req.params;
+    const response = await userService.exclude(id);
+
+    if (response.message) {
+      return res.status(response.status).json({ message: response.message });
+    }
+
+    return res.status(response.status).end();
+  } catch (error) {
+    next(error)
+  } 
+};
+
+module.exports = { create, getAll, exclude };
