@@ -1,4 +1,4 @@
-const { User } = require('../database/models');
+const { User, Admin } = require('../database/models');
 
 const login = async (email, password) => {
   const user = await User.findOne({ where: { email, password } });
@@ -10,4 +10,14 @@ const login = async (email, password) => {
   return user;
 };
 
-module.exports = { login };
+const loginAdmin = async (email, password) => {
+  const admin = await Admin.findOne({ where: { email, password } });
+
+  if (!admin) {
+    return { status: 400, message: 'Admin not found' };
+  }
+
+  return admin;
+};
+
+module.exports = { login, loginAdmin };
