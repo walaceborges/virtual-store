@@ -1,10 +1,10 @@
 const { Admin } = require('../database/models');
 
 const create = async (admin) => {
-  const nameExists = await Admin.findOne({ where: { name: admin.name } });
+  const emailExists = await Admin.findOne({ where: { email: admin.email } });
 
-  if (nameExists) {
-    return { status: 409, message: 'Name already registered' };
+  if (emailExists) {
+    return { status: 409, message: 'Email already registered' };
   }
 
   const createAdmin = await Admin.create(admin);

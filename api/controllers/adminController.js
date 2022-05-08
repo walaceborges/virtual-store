@@ -2,8 +2,8 @@ const adminService = require('../services/adminService');
 
 const create = async (req, res, next) => {
   try {
-    const { name, password } = req.body;
-    const response = await adminService.create({ name, password });
+    const { name, email, password } = req.body;
+    const response = await adminService.create({ name, email, password });
 
     if (response.status) {
       return res.status(response.status).json({ message: response.message });
