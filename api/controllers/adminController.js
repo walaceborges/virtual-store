@@ -15,7 +15,7 @@ const create = async (req, res, next) => {
   }
 };
 
-const getAll = async (req, res, next) => {
+const getAll = async (_req, res, next) => {
   try {
     const admins = await adminService.getAll();
     
