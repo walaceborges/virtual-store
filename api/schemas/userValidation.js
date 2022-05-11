@@ -1,9 +1,10 @@
 const isNameValid = (name) => {
 
   if (name.length < 8 || typeof name !== 'string') {
+    console.log(name);
     return { status: 400, message: '"Name" length must be at least 8 characters long' };
   }
-
+  
   return {};
 };
 
@@ -34,6 +35,7 @@ const isPasswordValid = (password) => {
 };
 
 const validate = (user) => {
+  console.log(user);
   const nameValidation = isNameValid(user.name);
   if (nameValidation.message) return nameValidation;
 

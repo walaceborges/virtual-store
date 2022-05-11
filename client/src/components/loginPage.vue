@@ -32,6 +32,8 @@
 
 <script>
 import login from "../services/login.js";
+import router from "../router/index.js";
+
 export default {
   data() {
     return {
@@ -46,7 +48,15 @@ export default {
   methods: {
     loginSubmit(e) {
       e.preventDefault();
-      login(this.email, this.password);
+      login(this.email, this.password).then((result) => {
+        console.log(result, "test121");
+        if (result) {
+          router.push("/dashboard");
+        } else {
+          alert("Login failed");
+        }
+      });
+      console.log(router);
     },
   },
 };

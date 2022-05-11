@@ -4,6 +4,7 @@ const create = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     const response = await userService.create({ name, email, password });
+    console.log(name, email, password);
 
     if (response.status) {
       return res.status(response.status).json({ message: response.message });
