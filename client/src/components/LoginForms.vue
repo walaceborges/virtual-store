@@ -27,6 +27,17 @@
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div class="form-check form-switch">
+      <input
+        class="form-check-input"
+        type="checkbox"
+        role="switch"
+        id="flexSwitchCheckDefault"
+      />
+      <label class="form-check-label" for="flexSwitchCheckDefault"
+        >Default switch checkbox input</label
+      >
+    </div>
   </form>
 </template>
 
@@ -49,7 +60,6 @@ export default {
     loginSubmit(e) {
       e.preventDefault();
       login(this.email, this.password).then((result) => {
-        console.log(result, "test121");
         if (result) {
           router.push("/home");
         } else {

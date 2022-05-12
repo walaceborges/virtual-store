@@ -1,4 +1,5 @@
 <template>
+  <NavHeader></NavHeader>
   <nav>
     <router-link to="/">Login</router-link> |
     <router-link to="/home">Home</router-link>
@@ -8,3 +9,13 @@
   </nav>
   <router-view />
 </template>
+
+<script>
+import NavHeader from "@/components/NavHeader.vue";
+
+export default {
+  components: {
+    NavHeader,
+  },
+};
+</script>
