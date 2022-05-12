@@ -39,8 +39,6 @@
 <script>
 import register from "../services/register.js";
 
-// import router from "../router/index.js";
-
 export default {
   data() {
     return {

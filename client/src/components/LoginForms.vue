@@ -51,7 +51,7 @@ export default {
       login(this.email, this.password).then((result) => {
         console.log(result, "test121");
         if (result) {
-          router.push("/dashboard");
+          router.push("/home");
         } else {
           alert("Login failed");
         }
