@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import register from "../services/register.js";
+import { registerUser } from "../services/register.js";
 // import router from "../router/index.js";
 
 export default {
@@ -48,11 +48,11 @@ export default {
       password: "",
     };
   },
-  name: "userRegister",
+  name: "registerUser",
   methods: {
     registerSubmit(e) {
       e.preventDefault();
-      register(this.name, this.email, this.password);
+      registerUser(this.name, this.email, this.password);
     },
   },
 };

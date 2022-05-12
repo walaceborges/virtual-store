@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import registerUser from "../components/registerUser.vue";
+import registerUser from "@/components/RegisterUser.vue";
 
 export default {
   components: {
