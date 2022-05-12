@@ -12,7 +12,7 @@ const create = async (req, res, next) => {
 
     return res.status(201).json({ message: 'User created' });
   } catch (error) {
-    next(error)
+    next(error);
   }
 };
 
@@ -22,9 +22,20 @@ const getAll = async (_req, res, next) => {
     
     return res.status(200).json(users);
   } catch (error) {
-    next(error)
+    next(error);
   } 
 };
+
+const buyProduct = async (req, res, next) => {
+  try {
+    const { idProduct, idUser } = req.body;
+    const response = await userService.buyProduct(idProduct, idUser);
+
+    return res.status(response.status).end();
+  } catch (error) {
+    next(error);
+  }
+}
 
 const exclude = async (req, res, next) => {
   try {
@@ -37,8 +48,8 @@ const exclude = async (req, res, next) => {
 
     return res.status(response.status).end();
   } catch (error) {
-    next(error)
+    next(error);
   } 
 };
 
-module.exports = { create, getAll, exclude };
+module.exports = { create, getAll, buyProduct, exclude };
