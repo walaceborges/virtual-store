@@ -20,19 +20,20 @@ const registerUser = async (name, email, password) => {
   }
 };
 
-const registerProducts = async (name, price, image) => {
+const buyProduct = async (idProduct) => {
   try {
-    const response = await fetch("http://localhost:3001/product", {
-      method: "POST",
+    const response = await fetch("http://localhost:3001/user/buy", {
+      method: "PUT",
       headers: {
         "Content-Type": "application/json",
         Authorization: `${localStorage.getItem("token")}`,
       },
-      body: JSON.stringify({ name, price, image }),
+      body: JSON.stringify({ idProduct }),
     });
 
-    let data = await response.json();
-    console.log(data);
+    if (response.messsage === "User does not have enough balance") {
+      return false;
+    }
 
     return true;
   } catch (error) {
@@ -43,5 +44,5 @@ const registerProducts = async (name, price, image) => {
 
 export default {
   registerUser,
-  registerProducts,
+  buyProduct,
 };

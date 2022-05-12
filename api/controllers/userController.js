@@ -4,7 +4,6 @@ const create = async (req, res, next) => {
   try {
     const { name, email, password } = req.body;
     const response = await userService.create({ name, email, password });
-    console.log(name, email, password);
 
     if (response.status) {
       return res.status(response.status).json({ message: response.message });
@@ -28,8 +27,8 @@ const getAll = async (_req, res, next) => {
 
 const buyProduct = async (req, res, next) => {
   try {
-    const { idProduct, idUser } = req.body;
-    const response = await userService.buyProduct(idProduct, idUser);
+    const { idProduct } = req.body;
+    const response = await userService.buyProduct(idProduct, req.userId);
 
     return res.status(response.status).end();
   } catch (error) {

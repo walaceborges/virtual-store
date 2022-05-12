@@ -37,8 +37,7 @@
 </template>
 
 <script>
-import { registerUser } from "../services/register.js";
-// import router from "../router/index.js";
+import registerUser from "../services/user";
 
 export default {
   data() {

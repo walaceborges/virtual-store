@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import register from "../services/register.js";
+import registerProduct from "../services/product";
 
 export default {
   data() {
@@ -51,7 +51,7 @@ export default {
   methods: {
     registerSubmit(e) {
       e.preventDefault();
-      register.registerProducts(this.name, this.price, this.image);
+      registerProduct.registerProducts(this.name, this.price, this.image);
     },
   },
 };

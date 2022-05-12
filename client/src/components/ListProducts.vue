@@ -13,14 +13,15 @@
             <p class="card-text">{{ product.price }}</p>
           </div>
         </div>
-        <button>Comprar</button>
+        <button @click="buyProduct(product.id)">Comprar</button>
       </div>
     </li>
   </ul>
 </template>
 
 <script>
-import getProducts from "../services/getProducts";
+import productService from "../services/product";
+import userService from "../services/user";
 
 export default {
   data() {
@@ -29,8 +30,13 @@ export default {
     };
   },
   name: "ListProducts",
+  methods: {
+    buyProduct(idProduct) {
+      userService.buyProduct(idProduct);
+    },
+  },
   created() {
-    getProducts().then((products) => {
+    productService.getProducts().then((products) => {
       this.products = products;
     });
   },

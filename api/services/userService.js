@@ -26,6 +26,10 @@ const buyProduct = async (idProduct, idUser) => {
     return { status: 404, message: 'Product or User not found' };
   }
 
+  if(user.balance < product.price) {
+    return { status: 403, message: 'User does not have enough balance' };
+  }
+
   await User.update({ balance: user.balance - product.price }, { where: { id: idUser } });
   return { status: 204 };
 }

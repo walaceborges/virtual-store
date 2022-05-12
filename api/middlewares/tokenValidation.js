@@ -8,7 +8,8 @@ const tokenValidation = (req, res, next) => {
       return res.status(401).json({ message: 'Token not found' });
     }
 
-    jwt.verifyToken(authorization);
+    const { data } = jwt.verifyToken(authorization);
+    req.userId = data.id;
     
     next();
   } catch (error) {
