@@ -1,6 +1,6 @@
 const jwt = require('../helpers/jwtToken');
 
-const tokenValidation = (req, res, next) => {
+const authToken = (req, res, next) => {
   try {
     const { authorization } = req.headers;
 
@@ -9,6 +9,8 @@ const tokenValidation = (req, res, next) => {
     }
 
     const { data } = jwt.verifyToken(authorization);
+    console.log(data);
+    req.isAdmin = data.isAdmin;
     req.userId = data.id;
     
     next();
@@ -17,4 +19,4 @@ const tokenValidation = (req, res, next) => {
   }
 };
 
-module.exports = { tokenValidation };
+module.exports = { authToken };

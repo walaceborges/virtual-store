@@ -4,23 +4,23 @@ const { createToken } = require('../helpers/jwtToken');
 const login = async (req, res, next) => {
   try { 
     const { email, password, isAdmin } = req.body;
-    let loginId;
+    let user;
 
     if (isAdmin === true) {
-      loginId = await loginService.loginAdmin(email, password);
+      user = await loginService.loginAdmin(email, password);
       
-      if (loginId.status) {
-        return res.status(loginId.status).json({ message: loginId.message });
+      if (user.status) {
+        return res.status(user.status).json({ message: user.message });
       }
     } else {
-      loginId = await loginService.login(email, password);
+      user = await loginService.login(email, password);
       
-      if (loginId.status) {
-        return res.status(loginId.status).json({ message: loginId.message });
+      if (user.status) {
+        return res.status(user.status).json({ message: user.message });
       }
     }
 
-    const token = createToken({ id: loginId.id });
+    const token = createToken({ id: user.id, isAdmin: user.isAdmin });
     return res.status(200).json({ token });
   } catch (error) {
     next(error);
