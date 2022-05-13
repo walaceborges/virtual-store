@@ -21,9 +21,16 @@ const registerProducts = async (name, price, image) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch("http://localhost:3001/product");
+    const response = await fetch("http://localhost:3001/product", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
 
     let data = await response.json();
+    console.log(data);
 
     return data;
   } catch (error) {

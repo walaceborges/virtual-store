@@ -33,6 +33,7 @@ export default {
   methods: {
     buyProduct(idProduct) {
       userService.buyProduct(idProduct);
+      this.$store.commit("getBalance");
     },
   },
   created() {

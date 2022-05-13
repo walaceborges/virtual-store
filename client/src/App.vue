@@ -1,7 +1,7 @@
 <template>
-  <NavHeader :balance="balance"></NavHeader>
+  <NavHeader></NavHeader>
   <nav>
-    <router-link to="/">Login</router-link> |
+    <router-link to="/">LoginSDDSD</router-link> |
     <router-link to="/home">Home</router-link>
     <!-- <router-link to="/about">About</router-link> -->
     <router-link to="/user/register">RegisterUser</router-link>
@@ -12,23 +12,14 @@
 
 <script>
 import NavHeader from "@/components/NavHeader.vue";
-import User from "@/services/user";
 
 export default {
-  data() {
-    return {
-      balance: 0,
-    };
-  },
   components: {
     NavHeader,
   },
-  methods: {
-    getCurrentUser() {
-      User.getCurrentUser().then((user) => {
-        this.balance = user.balance;
-        console.log(this.balance);
-      });
+  watch: {
+    $route() {
+      this.$store.commit("getBalance");
     },
   },
 };

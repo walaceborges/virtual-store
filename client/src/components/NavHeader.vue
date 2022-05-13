@@ -28,8 +28,24 @@
 
 <script>
 export default {
-  props: {
-    balance: Number,
+  data() {
+    return {
+      balance: 0,
+    };
+  },
+  computed: {
+    isUpdated() {
+      return this.$store.state.isUpdated;
+    },
+  },
+  mounted() {
+    this.balance = this.$store.state.balance;
+  },
+  watch: {
+    isUpdated() {
+      console.log("asasd");
+      this.balance = this.$store.state.balance;
+    },
   },
 };
 </script>

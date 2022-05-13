@@ -52,6 +52,7 @@ const getCurrentUser = async () => {
       },
     });
     let data = await response.json();
+    console.log(data, "data");
 
     if (response.status === 200) {
       return data;
