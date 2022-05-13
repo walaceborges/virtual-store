@@ -19,8 +19,17 @@
           <a class="nav-link" href="#">Features</a>
           <a class="nav-link" href="#">Pricing</a>
           <a class="nav-link disabled">Disabled</a>
+          <p class="nav-link text-danger">{{ balance }}</p>
         </div>
       </div>
     </div>
   </nav>
 </template>
+
+<script>
+export default {
+  props: {
+    balance: Number,
+  },
+};
+</script>

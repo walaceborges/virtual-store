@@ -66,7 +66,6 @@ export default {
           alert("Login failed");
         }
       });
-      console.log(router);
     },
   },
 };

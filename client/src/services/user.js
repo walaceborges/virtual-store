@@ -42,7 +42,29 @@ const buyProduct = async (idProduct) => {
   }
 };
 
+const getCurrentUser = async () => {
+  try {
+    const response = await fetch("http://localhost:3001/user/current", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
+    let data = await response.json();
+
+    if (response.status === 200) {
+      return data;
+    }
+    return false;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
 export default {
   registerUser,
   buyProduct,
+  getCurrentUser,
 };

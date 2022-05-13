@@ -25,6 +25,16 @@ const getAll = async (_req, res, next) => {
   } 
 };
 
+const getById = async (req, res, next) => {
+  try {
+    const user = await userService.getById(req.userId);
+
+    return res.status(200).json(user);
+  } catch (error) {
+    next(error);
+  }
+}
+
 const buyProduct = async (req, res, next) => {
   try {
     const { idProduct } = req.body;
@@ -51,4 +61,4 @@ const exclude = async (req, res, next) => {
   } 
 };
 
-module.exports = { create, getAll, buyProduct, exclude };
+module.exports = { create, getAll, getById, buyProduct, exclude };

@@ -18,6 +18,16 @@ const getAll = async () => {
   return users;
 }
 
+const getById = async (id) => {
+  const user = await User.findOne({ where: { id } });
+
+  if (!user) {
+    return { status: 404, message: 'User not found' };
+  }
+
+  return user;
+}
+
 const buyProduct = async (idProduct, idUser) => {
   const product = await Product.findOne({ where: { id: idProduct } });
   const user = await User.findOne({ where: { id: idUser } });
@@ -46,4 +56,4 @@ const exclude = async (id) => {
   return { status: 204 };
 };
 
-module.exports = { create, getAll, buyProduct, exclude };
+module.exports = { create, getAll, getById, buyProduct, exclude };

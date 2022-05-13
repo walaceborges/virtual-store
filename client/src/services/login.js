@@ -7,6 +7,7 @@ const login = async (email, password) => {
     });
 
     let data = await response.json();
+    console.log(data, "sadasd");
 
     if (response.status === 200) {
       localStorage.setItem("token", data.token);
