@@ -8,6 +8,7 @@ const create = async (user) => {
   }
 
   const createUser = await User.create(user);
+  console.log(createUser);
   
   return createUser;
 };

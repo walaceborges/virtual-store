@@ -37,7 +37,7 @@
 </template>
 
 <script>
-import registerUser from "../services/user";
+import userService from "../services/user";
 
 export default {
   data() {
@@ -51,7 +51,7 @@ export default {
   methods: {
     registerSubmit(e) {
       e.preventDefault();
-      registerUser(this.name, this.email, this.password);
+      userService.registerUser(this.name, this.email, this.password);
     },
   },
 };

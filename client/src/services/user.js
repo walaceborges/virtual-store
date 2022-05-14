@@ -1,5 +1,6 @@
 const registerUser = async (name, email, password) => {
   try {
+    console.log(name, email, password);
     const response = await fetch("http://localhost:3001/user", {
       method: "POST",
       headers: { "Content-Type": "application/json" },

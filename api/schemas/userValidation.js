@@ -26,7 +26,7 @@ const isPasswordValid = (password) => {
     return { status: 400, message: '"password" is required' };
   }
 
-  if (password.length !== 6) {
+  if (password.length <= 6) {
     return { status: 400, message: '"password" length must be 6 characters long' };
   }
   

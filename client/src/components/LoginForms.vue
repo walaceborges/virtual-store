@@ -26,7 +26,7 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1" />
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Entrar</button>
     <div class="form-check form-switch">
       <input
         class="form-check-input"
@@ -39,6 +39,9 @@
         >É um admin?</label
       >
     </div>
+    <router-link to="/user/register" class="btn btn-success"
+      >Cadastre-se</router-link
+    >
   </form>
 </template>
 
