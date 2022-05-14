@@ -13,7 +13,7 @@
             <p class="card-text">{{ product.price }}</p>
           </div>
         </div>
-        <button @click="buyProduct(product.id)">Comprar</button>
+        <button @click="buyProduct(product.id)" v-if="!isAdmin">Comprar</button>
       </div>
     </li>
   </ul>
@@ -30,10 +30,17 @@ export default {
     };
   },
   name: "ListProducts",
+  computed: {
+    isAdmin() {
+      console.log(this.$store.state.isAdmin);
+      return this.$store.state.isAdmin;
+    },
+  },
   methods: {
     buyProduct(idProduct) {
-      userService.buyProduct(idProduct);
-      this.$store.commit("getBalance");
+      userService.buyProduct(idProduct).then(() => {
+        this.$store.commit("getBalance");
+      });
     },
   },
   created() {

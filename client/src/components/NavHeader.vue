@@ -19,7 +19,7 @@
           <a class="nav-link" href="#">Features</a>
           <a class="nav-link" href="#">Pricing</a>
           <a class="nav-link disabled">Disabled</a>
-          <p class="nav-link text-danger">{{ balance }}</p>
+          <p class="nav-link text-danger" v-if="!isAdmin">{{ balance }}</p>
         </div>
       </div>
     </div>
@@ -37,12 +37,17 @@ export default {
     isUpdated() {
       return this.$store.state.isUpdated;
     },
+    isAdmin() {
+      console.log(this.$store.state.isAdmin);
+      return this.$store.state.isAdmin;
+    },
   },
   mounted() {
     this.balance = this.$store.state.balance;
   },
   watch: {
     isUpdated() {
+      console.log("teste");
       this.balance = this.$store.state.balance;
     },
   },

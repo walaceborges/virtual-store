@@ -7,7 +7,6 @@ const registerUser = async (name, email, password) => {
     });
 
     let data = await response.json();
-    console.log(data);
 
     if (response.status === 200) {
       localStorage.setItem("token", data.token);
@@ -51,11 +50,9 @@ const getCurrentUser = async () => {
         Authorization: `${localStorage.getItem("token")}`,
       },
     });
-    let data = await response.json();
-    console.log(data, "data");
 
     if (response.status === 200) {
-      return data;
+      return await response.json();
     }
     return false;
   } catch (error) {

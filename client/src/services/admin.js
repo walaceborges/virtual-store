@@ -9,8 +9,7 @@ const updateUserBalance = (userId, balance) => {
       },
     });
 
-    let data = response.json();
-    console.log(data);
+    return response.json();
   } catch (error) {
     return false;
   }

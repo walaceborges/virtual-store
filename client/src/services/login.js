@@ -1,3 +1,5 @@
+import store from "../store";
+
 const login = async (email, password, isAdmin) => {
   try {
     const response = await fetch("http://localhost:3001/login", {
@@ -7,8 +9,10 @@ const login = async (email, password, isAdmin) => {
     });
 
     let data = await response.json();
+    console.log(data);
 
     if (response.status === 200) {
+      store.dispatch("setIsAdmin", data.user.isAdmin);
       localStorage.setItem("token", data.token);
       return true;
     }

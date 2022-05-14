@@ -6,14 +6,24 @@ const store = createStore({
     return {
       balance: 0,
       isUpdated: 0,
+      isAdmin: false,
     };
+  },
+  actions: {
+    setIsAdmin: ({ commit }, isAdmin) => {
+      console.log(isAdmin);
+      commit("isAdmin", isAdmin);
+    },
   },
   mutations: {
     getBalance(state) {
       User.getCurrentUser().then((user) => {
         state.balance = user.balance;
-        state.isUpdated = 1;
+        state.isUpdated++;
       });
+    },
+    isAdmin(state, isAdmin) {
+      state.isAdmin = isAdmin;
     },
   },
 });
