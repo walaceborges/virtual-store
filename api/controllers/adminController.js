@@ -25,4 +25,15 @@ const getAll = async (_req, res, next) => {
   } 
 };
 
-module.exports = { create, getAll };
+const updateUserBalance = async (req, res, next) => {
+  try {
+    const { balance, id } = req.body;
+    await adminService.updateUserBalance(id, balance);
+   
+    return res.status(204).end();
+  } catch (error) {
+    next(error);
+  }
+}
+
+module.exports = { create, getAll, updateUserBalance };

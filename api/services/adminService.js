@@ -1,4 +1,4 @@
-const { Admin } = require('../database/models');
+const { Admin, User } = require('../database/models');
 
 const create = async (admin) => {
   const emailExists = await Admin.findOne({ where: { email: admin.email } });
@@ -18,4 +18,14 @@ const getAll = async () => {
   return admins;
 }
 
-module.exports = { create, getAll };
+const updateUserBalance = async (userId, newBalance) => {
+  const { balance } = await User.findOne({ where: { id: userId }, attributes: ['balance'] });
+
+  if (!balance) {
+    return res.status(404).json({ message: 'User not found' });
+  }
+
+  await User.update({ balance: newBalance }, { where: { id: userId } });
+}
+
+module.exports = { create, getAll, updateUserBalance };

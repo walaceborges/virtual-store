@@ -16,9 +16,9 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/Home.vue"),
   },
   {
-    path: "/dashboard",
-    name: "dashboard",
-    component: () => import("../views/DashboardPage.vue"),
+    path: "/admin/users",
+    name: "adminUsers",
+    component: () => import("../views/UserListPage.vue"),
   },
   {
     path: "/user/register",

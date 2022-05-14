@@ -43,7 +43,6 @@ export default {
   },
   watch: {
     isUpdated() {
-      console.log("asasd");
       this.balance = this.$store.state.balance;
     },
   },

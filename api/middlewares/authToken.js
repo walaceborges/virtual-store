@@ -9,7 +9,6 @@ const authToken = (req, res, next) => {
     }
 
     const { data } = jwt.verifyToken(authorization);
-    console.log(data);
     req.isAdmin = data.isAdmin;
     req.userId = data.id;
     
