@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "prestart": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
     "debug": "nodemon index.js"
@@ -19,6 +20,7 @@
     "mysql-import": "^5.0.21",
     "mysql2": "^2.3.3",
     "nodemon": "^2.0.16",
+    "pg": "^8.7.3",
     "sequelize": "^6.19.0",
     "sequelize-cli": "^6.4.1"
   }
