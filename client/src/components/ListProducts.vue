@@ -12,8 +12,10 @@
             <h5 class="card-title">{{ product.name }}</h5>
             <p class="card-text">{{ product.price }}</p>
           </div>
+          <button @click="buyProduct(product.id)" v-if="!isAdmin">
+            Comprar
+          </button>
         </div>
-        <button @click="buyProduct(product.id)" v-if="!isAdmin">Comprar</button>
       </div>
     </li>
   </ul>

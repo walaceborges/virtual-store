@@ -41,36 +41,3 @@
     </div>
   </form>
 </template>
-
-<script>
-import login from "../services/login.js";
-import router from "../router/index.js";
-
-export default {
-  data() {
-    return {
-      email: "",
-      password: "",
-      isAdmin: false,
-    };
-  },
-  name: "LoginForms",
-  props: {
-    msg: String,
-  },
-  methods: {
-    loginSubmit(e) {
-      e.preventDefault();
-      login(this.email, this.password, this.isAdmin).then((result) => {
-        if (result) {
-          router.push("/home");
-        } else {
-          alert("Login failed");
-        }
-      });
-    },
-  },
-};
-</script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->

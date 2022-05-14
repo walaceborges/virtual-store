@@ -27,8 +27,9 @@ const getAll = async (_req, res, next) => {
 
 const updateUserBalance = async (req, res, next) => {
   try {
-    const { balance, id } = req.body;
-    await adminService.updateUserBalance(id, balance);
+    console.log(req.body, 'backend');
+    const { balance, userId } = req.body;
+    await adminService.updateUserBalance(userId, balance);
    
     return res.status(204).end();
   } catch (error) {

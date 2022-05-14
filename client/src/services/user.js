@@ -41,6 +41,28 @@ const buyProduct = async (idProduct) => {
   }
 };
 
+const getUsers = async () => {
+  try {
+    const response = await fetch("http://localhost:3001/user", {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${localStorage.getItem("token")}`,
+      },
+    });
+
+    if (response.messsage) {
+      console.log(response.messsage);
+    }
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.log(error);
+    return false;
+  }
+};
+
 const getCurrentUser = async () => {
   try {
     const response = await fetch("http://localhost:3001/user/current", {
@@ -64,5 +86,6 @@ const getCurrentUser = async () => {
 export default {
   registerUser,
   buyProduct,
+  getUsers,
   getCurrentUser,
 };
