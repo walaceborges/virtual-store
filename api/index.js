@@ -8,6 +8,8 @@ const productRouter = require('./routers/productRouter')
 
 const app = express();
 
+const PORT = process.env.PORT || 3001;
+
 app.use(express.json());
 
 app.use(cors())
@@ -17,6 +19,6 @@ app.use('/login', loginRouter);
 app.use('/admin', adminRouter);
 app.use('/product', productRouter);
 
-app.listen(3001, () => {
-  console.log('Aplicação ouvindo na porta 3001');
+app.listen(PORT, () => {
+  console.log('Aplicação ouvindo na porta: ', PORT);
 });
