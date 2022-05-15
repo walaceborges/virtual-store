@@ -4,7 +4,7 @@ const create = async (product) => {
   const nameExists = await Product.findOne({ where: { name: product.name } });
 
   if (nameExists) {
-    return { status: 409, message: 'Name already registered' };
+    return { status: 409, message: 'Produto já registrado' };
   }
 
   const createProduct = await Product.create(product);

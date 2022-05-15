@@ -4,7 +4,7 @@ const login = async (email, password) => {
   const user = await User.findOne({ where: { email, password } });
 
   if (!user) {
-    return { status: 404, message: 'User not found' };
+    return { status: 404, message: 'Usuário não encontrado' };
   }
 
   user.isAdmin = false;
@@ -16,7 +16,7 @@ const loginAdmin = async (email, password) => {
   const admin = await Admin.findOne({ where: { email, password } });
 
   if (!admin) {
-    return { status: 404, message: 'Admin not found' };
+    return { status: 404, message: 'Admin não encontrado' };
   }
 
   admin.isAdmin = true;

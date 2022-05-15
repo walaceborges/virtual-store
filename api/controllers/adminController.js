@@ -9,7 +9,7 @@ const create = async (req, res, next) => {
       return res.status(response.status).json({ message: response.message });
     }
 
-    return res.status(201).json({ message: 'Admin created' });
+    return res.status(201).json({ message: 'Admin criado com sucesso' });
   } catch (error) {
     next(error)
   }

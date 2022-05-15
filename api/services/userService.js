@@ -4,7 +4,7 @@ const create = async (user) => {
   const emailExists = await User.findOne({ where: { email: user.email } });
 
   if (emailExists) {
-    return { status: 409, message: 'User already registered' };
+    return { status: 409, message: 'O Usuário já existe' };
   }
 
   const createUser = await User.create(user);
@@ -23,7 +23,7 @@ const getById = async (id) => {
   const user = await User.findOne({ where: { id } });
 
   if (!user) {
-    return { status: 404, message: 'User not found' };
+    return { status: 404, message: 'Usuário não encontrado' };
   }
 
   return user;
@@ -34,11 +34,11 @@ const buyProduct = async (idProduct, idUser) => {
   const user = await User.findOne({ where: { id: idUser } });
 
   if (!product || !user) {    
-    return { status: 404, message: 'Product or User not found' };
+    return { status: 404, message: 'Produto ou usuário não encontrado' };
   }
 
   if(user.balance < product.price) {
-    return { status: 403, message: 'User does not have enough balance' };
+    return { status: 403, message: 'Não há saldo suficiente' };
   }
 
   await User.update({ balance: user.balance - product.price }, { where: { id: idUser } });
@@ -49,7 +49,7 @@ const exclude = async (id) => {
   const user = await User.findOne({ where: { id } });
 
   if (!user) {
-    return { status: 404, message: 'User not found' };
+    return { status: 404, message: 'Usuário não encontrado' };
   }
   
   await User.destroy({ where: { id: id } });

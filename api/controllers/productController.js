@@ -9,7 +9,7 @@ const create = async (req, res, next) => {
       return res.status(response.status).json({ message: response.message });
     }
 
-    return res.status(201).json({ message: 'Product created' });
+    return res.status(201).json({ message: 'Produto criado com sucesso' });
   } catch (error) {
     next(error)
   }
