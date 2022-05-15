@@ -1,7 +1,7 @@
 const updateUserBalance = async (userId, balance) => {
   console.log(userId, balance);
   try {
-    await fetch("http://localhost:3001/admin/balance", {
+    await fetch("https://hotmiles.herokuapp.com/admin/balance", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

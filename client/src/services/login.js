@@ -2,7 +2,7 @@ import store from "../store";
 
 const login = async (email, password, isAdmin) => {
   try {
-    const response = await fetch("http://localhost:3001/login", {
+    const response = await fetch("https://hotmiles.herokuapp.com/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email, password, isAdmin }),

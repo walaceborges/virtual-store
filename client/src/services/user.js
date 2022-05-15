@@ -1,7 +1,7 @@
 const registerUser = async (name, email, password) => {
   try {
     console.log(name, email, password);
-    const response = await fetch("http://localhost:3001/user", {
+    const response = await fetch("https://hotmiles.herokuapp.com/user", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ name, email, password }),
@@ -22,7 +22,7 @@ const registerUser = async (name, email, password) => {
 
 const buyProduct = async (idProduct) => {
   try {
-    const response = await fetch("http://localhost:3001/user/buy", {
+    const response = await fetch("https://hotmiles.herokuapp.com/user/buy", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -44,7 +44,7 @@ const buyProduct = async (idProduct) => {
 
 const getUsers = async () => {
   try {
-    const response = await fetch("http://localhost:3001/user", {
+    const response = await fetch("https://hotmiles.herokuapp.com/user", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -66,13 +66,16 @@ const getUsers = async () => {
 
 const getCurrentUser = async () => {
   try {
-    const response = await fetch("http://localhost:3001/user/current", {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `${localStorage.getItem("token")}`,
-      },
-    });
+    const response = await fetch(
+      "https://hotmiles.herokuapp.com/user/current",
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `${localStorage.getItem("token")}`,
+        },
+      }
+    );
 
     if (response.status === 200) {
       return await response.json();

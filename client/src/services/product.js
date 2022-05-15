@@ -1,6 +1,6 @@
 const registerProducts = async (name, price, image) => {
   try {
-    const response = await fetch("http://localhost:3001/product", {
+    const response = await fetch("https://hotmiles.herokuapp.com/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -21,7 +21,7 @@ const registerProducts = async (name, price, image) => {
 
 const getProducts = async () => {
   try {
-    const response = await fetch("http://localhost:3001/product", {
+    const response = await fetch("https://hotmiles.herokuapp.com/product", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
