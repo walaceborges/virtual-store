@@ -24,7 +24,7 @@
         </ul>
         <div>
           <router-link to="/">
-            <button type="button" class="btn btn-outline-primary">
+            <button type="button" class="btn btn-warning">
               Deslogar
             </button></router-link
           >
