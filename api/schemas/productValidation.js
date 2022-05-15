@@ -1,7 +1,7 @@
 const isNameValid = (name) => {
 
   if (name.length < 8 || typeof name !== 'string') {
-    return { status: 400, message: '"Name" length must be at least 8 characters long' };
+    return { status: 400, message: 'O Nome" deve ter pelo menos 8 caracteres' };
   }
 
   return {};
@@ -10,7 +10,7 @@ const isNameValid = (name) => {
 const isPriceValid = (price) => {
 
   if (!price) {
-    return { status: 400, message: '"price" is required' };
+    return { status: 400, message: '"Preço" é obrigatório' };
   }
 
   return {};
@@ -19,7 +19,7 @@ const isPriceValid = (price) => {
 const isImageValid = (image) => {
 
   if (!image) {
-    return { status: 400, message: '"image" is required' };
+    return { status: 400, message: '"Imagem" é obrigatória' };
   }
   
   return {};

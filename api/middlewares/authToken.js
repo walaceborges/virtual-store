@@ -5,7 +5,7 @@ const authToken = (req, res, next) => {
     const { authorization } = req.headers;
 
     if (!authorization) {
-      return res.status(401).json({ message: 'Token not found' });
+      return res.status(401).json({ message: 'Token não encontrado' });
     }
 
     const { data } = jwt.verifyToken(authorization);
@@ -14,7 +14,7 @@ const authToken = (req, res, next) => {
     
     next();
   } catch (error) {
-    return res.status(401).json({ message: 'Expired or invalid token' });
+    return res.status(401).json({ message: 'Token expirado ou inválido' });
   }
 };
 

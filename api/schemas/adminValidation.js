@@ -1,7 +1,7 @@
 const isNameValid = (name) => {
 
   if (name.length < 8 || typeof name !== 'string') {
-    return { status: 400, message: '"Name" length must be at least 8 characters long' };
+    return { status: 400, message: 'O "Nome" deve ter pelo menos 8 caracteres' };
   }
 
   return {};
@@ -10,11 +10,11 @@ const isNameValid = (name) => {
 const isEmailValid = (email) => {
 
   if (!email) {
-    return { status: 400, message: '"email" is required' };
+    return { status: 400, message: '"email" é obrigatório' };
   }
 
   if (email.startsWith('@') || email.endsWith('@') || !email.includes('@')) {
-    return { status: 400, message: '"email" must be a valid email' };
+    return { status: 400, message: '"email" deve ser um e-mail válido' };
   }
 
   return {};
@@ -23,11 +23,11 @@ const isEmailValid = (email) => {
 const isPasswordValid = (password) => {
 
   if (!password) {
-    return { status: 400, message: '"password" is required' };
+    return { status: 400, message: '"Senha" obrigatória' };
   }
 
   if (password.length !== 6) {
-    return { status: 400, message: '"password" length must be 6 characters long' };
+    return { status: 400, message: 'A da "senha" deve ter 6 caracteres' };
   }
   
   return {};
