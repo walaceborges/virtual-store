@@ -1,0 +1,37 @@
+services:
+  frontend:
+    build: ./client
+    ports:
+      - "8080:8080"
+    depends_on:
+      - "backend"
+    restart: always
+    environment: 
+      - "VUE_APP_API_URL=http://backend/:"
+      - "VUE_APP_API_PORT=3001"
+  backend:
+    build: ./api
+    ports:
+      - "3001:3001"
+    restart: always
+    environment:
+      - "DB_HOST=postgres"
+      - "DB_PORT=5432"
+      - "DB_USER=postgres"
+      - "DB_PASSWORD=postgres"
+      - "DB_NAME=postgres"
+
+  # postgres:
+  #   image: postgres
+  #   environment:
+  #     POSTGRES_USER: postgres
+  #     POSTGRES_PASSWORD: postgres
+  #     POSTGRES_DB: postgres
+  #   ports:
+  #     - "5432:5432"
+  #   restart: always
+  #   volumes:
+  #     - ./postgres:/var/lib/postgresql/data
+  #     - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+  #   depends_on:
+  #     - "backend"
