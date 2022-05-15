@@ -26,7 +26,7 @@
       <input type="checkbox" class="form-check-input" id="exampleCheck1" />
       <label class="form-check-label" for="exampleCheck1">Check me out</label>
     </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
+    <button type="submit" class="btn btn-primary">Entrar</button>
     <div class="form-check form-switch">
       <input
         class="form-check-input"
@@ -39,5 +39,41 @@
         >É um admin?</label
       >
     </div>
+    <router-link to="/user/register" class="btn btn-success"
+      >Cadastre-se</router-link
+    >
   </form>
 </template>
+
+<script>
+import login from "../services/login.js";
+import router from "../router/index.js";
+
+export default {
+  data() {
+    return {
+      email: "",
+      password: "",
+      isAdmin: false,
+    };
+  },
+  name: "LoginForms",
+  props: {
+    msg: String,
+  },
+  methods: {
+    loginSubmit(e) {
+      e.preventDefault();
+      login(this.email, this.password, this.isAdmin).then((result) => {
+        if (result) {
+          router.push("/home");
+        } else {
+          alert("Login failed");
+        }
+      });
+    },
+  },
+};
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
