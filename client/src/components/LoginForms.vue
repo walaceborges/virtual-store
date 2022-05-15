@@ -67,9 +67,11 @@
                       class="d-flex align-items-center justify-content-center pb-4"
                     >
                       <p class="mb-0 me-2">Não tem uma conta?</p>
-                      <button type="button" class="btn btn-outline-danger">
-                        Cadastra-se
-                      </button>
+                      <router-link to="/user/register">
+                        <button type="button" class="btn btn-outline-danger">
+                          Cadastra-se
+                        </button></router-link
+                      >
                     </div>
                   </form>
                 </div>
