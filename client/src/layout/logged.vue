@@ -1,12 +1,12 @@
 <template>
   <div>
     <NavHeader></NavHeader>
-    <nav>
+    <!-- <nav>
       <router-link to="/">LoginSDDSD</router-link>
       <router-link to="/home">Home</router-link>
       <router-link to="/admin/users">About</router-link>
       <router-link to="/product/register">RegisterProduct</router-link>
-    </nav>
+    </nav> -->
     <slot></slot>
   </div>
 </template>

@@ -40,15 +40,20 @@ export default {
   methods: {
     updateBalance(userId) {
       const user = this.users.find((user) => user.id === userId);
-      adminService.updateUserBalance(user.id, user.newBalance).then(() => {
-        this.getUsers();
-      });
+      adminService
+        .updateUserBalance(user.id, user.newBalance)
+        .then(async () => {
+          await this.getUsers();
+        });
     },
     getUsers() {
       userService.getUsers().then((users) => {
         this.users = users;
-        console.log(users);
+        this.orderById();
       });
+    },
+    orderById() {
+      this.users.sort((a, b) => a.id - b.id);
     },
   },
 };

@@ -1,39 +1,41 @@
 <template>
-  <form @submit="registerSubmit">
-    <div class="form-row">
-      <div class="form-group col-md-6">
-        <label for="inputName4">Name</label>
+  <div class="container py-4" @submit="registerSubmit">
+    <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+      <div class="mb-3">
         <input
-          type="Name"
           class="form-control"
-          id="inputName4"
-          placeholder="Name"
+          type="text"
+          placeholder="Nome do Produto"
           v-model="name"
         />
+        <div class="invalid-feedback" data-sb-feedback="name:required"></div>
       </div>
-      <div class="form-group col-md-6">
-        <label for="inputPrice4">Price</label>
+
+      <div class="mb-3">
         <input
-          type="Price"
           class="form-control"
-          id="inputPrice4"
-          placeholder="Price"
+          type="text"
+          placeholder="Valor do produto"
           v-model="price"
         />
       </div>
-    </div>
-    <div class="form-group">
-      <label for="inputImage">Image</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputImage"
-        placeholder="Image"
-        v-model="image"
-      />
-    </div>
-    <button type="submit" class="btn btn-primary">Register</button>
-  </form>
+
+      <div class="mb-3">
+        <input
+          class="form-control"
+          type="text"
+          placeholder="Url da imagem"
+          v-model="image"
+        />
+      </div>
+
+      <div class="d-grid">
+        <button class="btn btn-primary btn-lg" id="submitButton" type="submit">
+          Cadastrar Produto
+        </button>
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>

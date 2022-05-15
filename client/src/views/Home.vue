@@ -1,20 +1,22 @@
 <template>
   <div class="home">
     <layout>
-      <img alt="Vue logo" src="../assets/logo.png" />
-      <Home msg="Welcome to Your Vue.js App" />
+      <Home />
+      <Footer />
     </layout>
   </div>
 </template>
 
 <script>
 import Home from "@/components/ListProducts.vue";
+import Footer from "../components/MainFooter.vue";
 import layout from "../layout/logged.vue";
 
 export default {
   name: "HomeView",
   components: {
     Home,
+    Footer,
     layout,
   },
 };

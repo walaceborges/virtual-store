@@ -1,17 +1,23 @@
 <template>
   <div class="about">
-    <h1>Bem vindo a tela de listar usuarios</h1>
-    <ListUsers></ListUsers>
+    <layout>
+      <ListUsers></ListUsers>
+      <Footer />
+    </layout>
   </div>
 </template>
 
 <script>
 import ListUsers from "../components/ListUsers.vue";
+import Footer from "../components/MainFooter.vue";
+import layout from "../layout/logged.vue";
 
 export default {
   name: "UserListPage",
   components: {
     ListUsers,
+    Footer,
+    layout,
   },
 };
 </script>
