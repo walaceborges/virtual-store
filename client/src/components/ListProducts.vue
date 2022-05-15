@@ -58,7 +58,6 @@ export default {
   name: "ListProducts",
   computed: {
     isAdmin() {
-      console.log(this.$store.state.isAdmin);
       return this.$store.state.isAdmin;
     },
   },

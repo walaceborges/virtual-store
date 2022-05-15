@@ -22,6 +22,13 @@
             >
           </li>
         </ul>
+        <div>
+          <router-link to="/">
+            <button type="button" class="btn btn-outline-primary">
+              Deslogar
+            </button></router-link
+          >
+        </div>
         <div class="">
           <a class="nav-link text-danger" v-if="!isAdmin">{{ balance }}</a>
         </div>
@@ -52,7 +59,6 @@ export default {
       return this.$store.state.isUpdated;
     },
     isAdmin() {
-      console.log(this.$store.state.isAdmin);
       return this.$store.state.isAdmin;
     },
   },
@@ -61,7 +67,6 @@ export default {
   },
   watch: {
     isUpdated() {
-      console.log("teste");
       this.balance = this.$store.state.balance;
     },
   },
