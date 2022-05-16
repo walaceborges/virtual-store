@@ -22,7 +22,7 @@
                   <!-- Product name-->
                   <h5 class="fw-bolder">{{ product.name }}</h5>
                   <!-- Product price-->
-                  <span>{{ product.price }}</span>
+                  <span>{{ product.price }} Milhas</span>
                 </div>
               </div>
               <!-- Product actions-->
