@@ -23,11 +23,11 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 - [Nodemon](https://www.npmjs.com/package/nodemon)
 - [Cors](https://www.npmjs.com/package/nodemon)
 - [Dotenv](https://www.npmjs.com/package/nodemon)
-- [jwt](https://www.npmjs.com/package/nodemon)
+- [Jwt](https://www.npmjs.com/package/nodemon)
 - [Postgres](https://www.npmjs.com/package/nodemon)
 - [Sequelize](https://www.npmjs.com/package/nodemon)
 - [Sequelize-cli](https://www.npmjs.com/package/nodemon)
-- 
+- [Docker](https://www.npmjs.com/package/nodemon)
 - [Vue.js](https://www.npmjs.com/package/nodemon)
 - [Vue-router](https://www.npmjs.com/package/nodemon)
 - [Vuex](https://www.npmjs.com/package/nodemon)
@@ -49,7 +49,6 @@ $ git clone https://github.com/walaceborges/virtual-store.git
 $ cd virtual-store
 
 # Rode o docker-compose
-
 $ docker-compose up
 
 ```
