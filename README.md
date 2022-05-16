@@ -11,7 +11,7 @@
 
 ### Este projeto foi desenvolvido para *fins acadêmicos* e não possui *monetização*.
 
-Esse projeto foi feito para praticar meus conhecimentos utilizando o Node.js, decidi escolher pelo encurtador de url por ser um projeto funcional e bem efetivo.
+Esse projeto foi feito com base no desafio técnico FullStack da empresa Voll Solutions. A proposta era desenvolver uma plataforma para controle de pontos com loja virtual. 
 
 ## 🧪 Tecnologias
 
