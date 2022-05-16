@@ -6,7 +6,7 @@ const create = async (req, res, next) => {
     const response = await userService.create({ name, email, password });
 
     if (response.status) {
-      return res.status(response.status).json({ message: response.message });
+      return res.status(response.status).json({ message: response.message, error: true });
     }
 
     return res.status(201).json({ message: 'Usuário criado com sucesso' });
@@ -40,7 +40,7 @@ const buyProduct = async (req, res, next) => {
     const { idProduct } = req.body;
     const response = await userService.buyProduct(idProduct, req.userId);
 
-    return res.status(response.status).end();
+    return res.status(response.status).json({ message: response.message });
   } catch (error) {
     next(error);
   }

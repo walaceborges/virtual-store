@@ -113,6 +113,8 @@
 
 <script>
 import userService from "../services/user";
+import { useToast } from "vue-toastification";
+import router from "../router/index.js";
 
 export default {
   data() {
@@ -120,13 +122,26 @@ export default {
       name: "",
       email: "",
       password: "",
+      toast: useToast(),
     };
   },
   name: "registerUser",
   methods: {
     registerSubmit(e) {
       e.preventDefault();
-      userService.registerUser(this.name, this.email, this.password);
+      userService.registerUser(this.name, this.email, this.password).then(
+        (response) => {
+          if (!response.error) {
+            this.toast.success(response.message);
+            router.push("/");
+          } else {
+            this.toast.error(response.message);
+          }
+        },
+        (error) => {
+          this.toast.error(error.response.message);
+        }
+      );
     },
   },
 };

@@ -10,9 +10,11 @@ const registerProducts = async (name, price, image) => {
     });
 
     let data = await response.json();
-    console.log(data);
+    if (response.status === 201) {
+      return { message: data.message };
+    }
 
-    return true;
+    return { message: data.message, error: true };
   } catch (error) {
     console.log(error);
     return false;
@@ -34,7 +36,6 @@ const getProducts = async () => {
 
     return data;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

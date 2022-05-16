@@ -40,6 +40,8 @@
 
 <script>
 import registerProduct from "../services/product";
+import router from "../router/index.js";
+import { useToast } from "vue-toastification";
 
 export default {
   data() {
@@ -47,13 +49,23 @@ export default {
       name: "",
       price: "",
       image: "",
+      toast: useToast(),
     };
   },
   name: "productRegister",
   methods: {
     registerSubmit(e) {
       e.preventDefault();
-      registerProduct.registerProducts(this.name, this.price, this.image);
+      registerProduct
+        .registerProducts(this.name, this.price, this.image)
+        .then((response) => {
+          if (!response.error) {
+            this.toast.success(response.message);
+            router.push("/home");
+          } else {
+            this.toast.error(response.message);
+          }
+        });
     },
   },
 };

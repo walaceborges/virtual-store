@@ -26,11 +26,13 @@
 <script>
 import userService from "../services/user";
 import adminService from "../services/admin";
+import { useToast } from "vue-toastification";
 
 export default {
   data() {
     return {
       users: [],
+      toast: useToast(),
     };
   },
   name: "ListUsers",
@@ -42,8 +44,13 @@ export default {
       const user = this.users.find((user) => user.id === userId);
       adminService
         .updateUserBalance(user.id, user.newBalance)
-        .then(async () => {
+        .then(async (response) => {
           await this.getUsers();
+          if (!response.error) {
+            this.toast.success(response.message);
+          } else {
+            this.toast.error(response.message);
+          }
         });
     },
     getUsers() {

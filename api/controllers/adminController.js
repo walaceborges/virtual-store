@@ -30,7 +30,7 @@ const updateUserBalance = async (req, res, next) => {
     const { balance, userId } = req.body;
     await adminService.updateUserBalance(userId, balance);
    
-    return res.status(204).end();
+    return res.status(200).json({ message: 'Saldo atualizado com sucesso' });
   } catch (error) {
     next(error);
   }

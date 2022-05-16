@@ -8,15 +8,15 @@ const registerUser = async (name, email, password) => {
     });
 
     let data = await response.json();
+    console.log(data);
 
-    if (response.status === 200) {
+    if (response.status === 201) {
       localStorage.setItem("token", data.token);
-      return true;
+      return { message: data.message };
     }
-    return false;
+    return { message: data.message, error: true };
   } catch (error) {
-    console.log(error);
-    return false;
+    return error.message;
   }
 };
 
@@ -31,13 +31,14 @@ const buyProduct = async (idProduct) => {
       body: JSON.stringify({ idProduct }),
     });
 
-    if (response.messsage === "User does not have enough balance") {
-      return false;
+    const data = await response.json();
+
+    if (response.status === 200) {
+      return { message: data.message };
     }
 
-    return true;
+    return { message: data.message, error: true };
   } catch (error) {
-    console.log(error);
     return false;
   }
 };
@@ -59,7 +60,6 @@ const getUsers = async () => {
     const data = await response.json();
     return data;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };
@@ -82,7 +82,6 @@ const getCurrentUser = async () => {
     }
     return false;
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

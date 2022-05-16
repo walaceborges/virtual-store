@@ -4,7 +4,7 @@ const validateUser = (req, res, next) => {
   const validation = userValidation.validate(req.body);
 
   if (validation.message) {
-    return res.status(validation.status).json({ message: validation.message });
+    return res.status(validation.status).json({ message: validation.message, error: true });
   }
 
   next();

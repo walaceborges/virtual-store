@@ -4,7 +4,7 @@ const create = async (user) => {
   const emailExists = await User.findOne({ where: { email: user.email } });
 
   if (emailExists) {
-    return { status: 409, message: 'O Usuário já existe' };
+    return { status: 409, message: 'O Usuário já existe', error: true };
   }
 
   const createUser = await User.create(user);
@@ -33,15 +33,15 @@ const buyProduct = async (idProduct, idUser) => {
   const user = await User.findOne({ where: { id: idUser } });
 
   if (!product || !user) {    
-    return { status: 404, message: 'Produto ou usuário não encontrado' };
+    return { status: 404, message: 'Produto ou usuário não encontrado', error: true };
   }
 
   if(user.balance < product.price) {
-    return { status: 403, message: 'Não há saldo suficiente' };
+    return { status: 403, message: 'Não há saldo suficiente', error: true };
   }
 
   await User.update({ balance: user.balance - product.price }, { where: { id: idUser } });
-  return { status: 204 };
+  return { status: 200, message: 'Compra realizada com sucesso' };
 }
 
 const exclude = async (id) => {

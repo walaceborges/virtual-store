@@ -116,6 +116,7 @@
 <script>
 import login from "../services/login.js";
 import router from "../router/index.js";
+import { useToast } from "vue-toastification";
 
 export default {
   data() {
@@ -123,6 +124,7 @@ export default {
       email: "",
       password: "",
       isAdmin: false,
+      toast: useToast(),
     };
   },
   name: "LoginForms",
@@ -132,11 +134,12 @@ export default {
   methods: {
     loginSubmit(e) {
       e.preventDefault();
-      login(this.email, this.password, this.isAdmin).then((result) => {
-        if (result) {
+      login(this.email, this.password, this.isAdmin).then((response) => {
+        if (!response.error) {
+          this.toast.success(response.message);
           router.push("/home");
         } else {
-          alert("Login failed");
+          this.toast.error(response.message);
         }
       });
     },

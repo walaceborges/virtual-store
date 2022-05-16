@@ -9,16 +9,14 @@ const login = async (email, password, isAdmin) => {
     });
 
     let data = await response.json();
-    console.log(data);
 
     if (response.status === 200) {
       store.dispatch("setIsAdmin", data.user.isAdmin);
       localStorage.setItem("token", data.token);
-      return true;
+      return { message: data.message };
     }
-    return false;
+    return { message: data.message, error: true };
   } catch (error) {
-    console.log(error);
     return false;
   }
 };

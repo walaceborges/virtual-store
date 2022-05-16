@@ -48,11 +48,14 @@
 <script>
 import productService from "../services/product";
 import userService from "../services/user";
+import router from "../router/index.js";
+import { useToast } from "vue-toastification";
 
 export default {
   data() {
     return {
       products: [],
+      toast: useToast(),
     };
   },
   name: "ListProducts",
@@ -63,8 +66,14 @@ export default {
   },
   methods: {
     buyProduct(idProduct) {
-      userService.buyProduct(idProduct).then(() => {
+      userService.buyProduct(idProduct).then((response) => {
         this.$store.commit("getBalance");
+        if (!response.error) {
+          this.toast.success(response.message);
+          router.push("/home");
+        } else {
+          this.toast.error(response.message);
+        }
       });
     },
   },
