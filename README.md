@@ -1,5 +1,5 @@
 <h1 align="center">
-  [HotTravel](https://hotmiles.netlify.app/#/)
+     💼 <a href="https://hotmiles.netlify.app/#/" target="_blank"> HotTravel </a>
 </h1>
 <h1 align="center">
     <img alt="Main Page" src="https://thumbs.dreamstime.com/b/travel-banner-flat-vector-vacation-design-set-concept-illustration-54835759.jpg" />
@@ -21,19 +21,19 @@ Este projeto foi feito utilizando as seguintes tecnologias:
 - [Express](https://expressjs.com/)
 - [Dotenv](https://www.npmjs.com/package/dotenv)
 - [Nodemon](https://www.npmjs.com/package/nodemon)
-- [Cors](https://www.npmjs.com/package/nodemon)
-- [Dotenv](https://www.npmjs.com/package/nodemon)
-- [Jwt](https://www.npmjs.com/package/nodemon)
-- [Postgres](https://www.npmjs.com/package/nodemon)
-- [Sequelize](https://www.npmjs.com/package/nodemon)
-- [Sequelize-cli](https://www.npmjs.com/package/nodemon)
-- [Docker](https://www.npmjs.com/package/nodemon)
-- [Vue.js](https://www.npmjs.com/package/nodemon)
-- [Vue-router](https://www.npmjs.com/package/nodemon)
-- [Vuex](https://www.npmjs.com/package/nodemon)
-- [Vue-toastification](https://www.npmjs.com/package/nodemon)
-- [Bootstrap](https://www.npmjs.com/package/nodemon)
-- [Eslint](https://www.npmjs.com/package/nodemon)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Dotenv](https://www.npmjs.com/package/dotenv)
+- [Jwt](https://www.npmjs.com/package/jsonwebtoken)
+- [Postgres](https://www.postgresql.org/)
+- [Sequelize](https://www.npmjs.com/package/sequelize)
+- [Sequelize-cli](https://www.npmjs.com/package/sequelize-cli)
+- [Docker](https://www.docker.com/)
+- [Vue.js](https://vuejs.org/)
+- [Vue-router](https://router.vuejs.org/)
+- [Vuex](https://vuex.vuejs.org/)
+- [Vue-toastification](https://github.com/Maronato/vue-toastification)
+- [Bootstrap](https://getbootstrap.com/)
+- [Eslint](https://eslint.org/)
 
 ## 🪐 Execução 
 
