@@ -11,7 +11,7 @@
 
 ### Este projeto foi desenvolvido para *fins acadêmicos* e não possui *monetização*.
 
-Esse projeto foi feito com base no desafio técnico FullStack da empresa Voll Solutions. A proposta era desenvolver uma plataforma para controle de pontos com loja virtual. O front era preciso fazer deploy na plataforma Netlifly e o backend no Heroku, por opção, pude escolher qualquer banco de dados e optei pelo postgres e hospedei no supabase.
+Esse projeto foi feito com base no desafio técnico FullStack. A proposta era desenvolver uma plataforma para controle de pontos com loja virtual. O front era preciso fazer deploy na plataforma Netlifly e o backend no Heroku, por opção, pude escolher qualquer banco de dados e optei pelo postgres e hospedei no supabase.
 
 ## 🧪 Tecnologias
 
